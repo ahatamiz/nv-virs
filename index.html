@@ -1,185 +1,216 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-svg" href="./images/nvidia.svg">
-    <script src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
-    <script src="https://kit.fontawesome.com/8290b48404.js" crossorigin="anonymous"></script>
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
-  />
-    <link rel="stylesheet" href="./dist/style.css">
-    
-    <title>GradViT: Gradient Inversion of Vision Transformers</title>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="Vision Retention Networks (ViR) allows for double parallel and recursive formulations.">
+  <meta name="keywords" content="ViR, Retention">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ViR: Towards Efficient Vision Retention Backbones</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
 </head>
 <body>
-    <div class="main container">
-        <nav class="menu">
-            <ul>
-                <li><a href="#news">News</a></li>
-                <li><a href="#paper">Paper</a></li>
-            </ul>
-        </nav>
-        <div class="wrapper">
-            <div class="wrapper-title">
-                <div id="title">GradViT: Gradient Inversion of Vision Transformers</div>
-            </div>
 
-            <div class="wrapper-crew">
-                <div class="crew">
-                    <ul>
-                        <li class="wow animate__animated animate__fadeInDown"><a target="_blank" class="main-star" href="https://research.nvidia.com/person/ali-hatamizadeh">Ali Hatamizadeh</a></li>
-                        <li class="wow animate__animated animate__fadeInDown"><a target="_blank" class="main-star" href="https://research.nvidia.com/person/danny-yin">Hongxu Yin</a></li>
-                        <li class="wow animate__animated animate__fadeInDown"><a target="_blank" class="" href="https://research.nvidia.com/person/holger-roth">Holger Roth</a></li>
-                        <li class="wow animate__animated animate__fadeInUp"><a target="_blank" class="" href="https://research.nvidia.com/person/wenqi-li">Wenqi Li</a></li>
-                        <li class="wow animate__animated animate__fadeInUp"><a target="_blank" class="" href="https://research.nvidia.com/person/jan-kautz">Jan Kautz</a></li>
-                        <li class="wow animate__animated animate__fadeInUp"><a target="_blank" class="secondary-star" href="https://research.nvidia.com/person/daguang-xu">Daguang Xu</a></li>
-                        <li class="wow animate__animated animate__fadeInUp"><a target="_blank" class="secondary-star" href="https://research.nvidia.com/person/pavlo-molchanov">Pavlo Molchanov</a></li>
-                    </ul>
-                </div>
-            </div>
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
 
-            <div class="wrapper-main-download">
-                <div class="main-download">
-                    <figure>
-                        <img src="./images/nvidia.svg" alt="">                        
-                    </figure>
-                    <h2>CVPR 2022</h2>
-                    <img class="lg" src="./images/logo.jpeg" alt="">
-                    <div class="download-btn">
-                        <a class="wow animate__animated animate__lightSpeedInLeft" target="_blank" href="https://arxiv.org/pdf/2203.11894.pdf"><i class="far fa-sticky-note"></i> Paper </a>
-                        <a class="wow animate__animated animate__lightSpeedInRight" target="_blank" href=""><i class="fas fa-file-code"></i> code</a>
-                    </div>
-                </div>
-            </div>
+</nav>
 
-            <div class="wrapper-articles">
-                <div class="article">
-                    <figure class="article-image">
-                        <img class="wow animate__animated animate__fadeInLeft" src="./images/client_server.png" alt="">
-                        <figcaption>*Equal contribution.**Equal advising.</figcaption>
-                    </figure>
-                </div>
-                
 
-                <div id="news" class="article">
-                    <div class="title">
-                        <span>News</span>
-                    </div>
-                    <div class="news-wrapper">
-                        <ul>
-                            <li><i class="fa-solid fa-rss"></i> [Mar 2022] <a target="_blank" href="">Code</a> will be released.</li>
-                            <li><i class="fa-solid fa-rss"></i> [Mar 2022] Our paper has been accepted to <a target="_blank" href="https://cvpr2022.thecvf.com/">CVPR 2022</a>.</li>
-                        </ul>
-                    </div>
-                </div>
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ViR: Towards Efficient Vision Retention Backbones</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://research.nvidia.com/person/ali-hatamizadeh">Ali Hatamizadeh</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://github.com/mranzinger">Mike Ranzinger</a><sup>1</sup>,</span>
+            <span class="author-block">
+              <a href="https://voidrank.github.io/">Shiyi Lan</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://developer.nvidia.com/blog/author/josemalvarez/">Jose M Alvarez</a><sup>1</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://www.cs.utoronto.ca/~fidler/">Sanja Fidler</a><sup>1,2</sup>,
+            </span>
+            <span class="author-block">
+              <a href="https://jankautz.com/">Jan Kautz</a><sup>1</sup>
+            </span>
+          </div>
 
-                <div class="article">
-                    <div class="title">
-                        <span>Abstract</span>
-                    </div>
-                    <article>
-                        <p> In this work we demonstrate the vulnerability of vision transformers (ViTs) to gradient-based inversion attacks. During this attack, the original data batch is reconstructed given model weights and the corresponding gradients. We introduce a method, named GradViT, that optimizes random noise into naturally looking images via an iterative process. The optimization objective consists of (i) a loss on matching the gradients, (ii) image prior in the form of distance to batch-normalization statistics of a pretrained CNN model, and (iii) a total variation regularization on patches to guide correct recovery locations. We propose a unique loss scheduling function to overcome local minima during optimization. We evaluate GadViT on ImageNet1K and MS-Celeb-1M datasets, and observe unprecedentedly high fidelity and closeness to the original (hidden) data. During the analysis we find that vision transformers are significantly more vulnerable than previously studied CNNs due to the presence of the attention mechanism. Our method demonstrates new state-of-the-art results for gradient inversion in both qualitative and quantitative metrics.</p>
-                    </article>
-                    <figure class="article-image"></figure>
-                </div>
-                <div class="article">
-                    <div class="title">
-                        <span>Key Findings</span>
-                    </div>
-                    <article>
-                        <p>
-                        We show vision transformer gradients encode a surprising amount of information
-                        such that high-fidelity original image batches of high resolution can
-                        be recovered, see 112 &times 112 pixel MS-Celeb-1M and 224 &times 224
-                        pixel ImageNet1K sample recovery above and more in experiments.
-                        Our method, GradViT, yields the first successful attempt to invert
-                        ViT gradients, not achievable by previous state-of-the-art methods.
-                        We demonstrate that ViTs, despite lacking batchnorm layers, suffer
-                        even more data leakage compared to CNNs. As insights we show
-                        that ViT gradients (i) encode uneven original information across
-                        layers, and (ii) attention is all that reveals.
-                        </p>
-                    </article>
-                    <figure class="article-image">
-                        <img class="wow animate__animated animate__fadeInRight" src="./images/client_server.jpg" alt="">
-                        <figcaption></figcaption>
-                    </figure>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block"><sup>1</sup>NVIDIA,</span>
+            <span class="author-block"><sup>2</sup>University of Toronto</span>
+          </div>
 
-                    <figure class="article-image">
-                        <img class="wow animate__animated animate__bounceIn" src="./images/imagenet_results.png" alt="">
-                        <figcaption>Qualitative comparisons of reconstructed images from batch of 8 images in ImageNet1K dataset using the proposed GradViT and state-of-the-art GradInversion. GradViT outperforms GradInversion both qualitatively and quantitatively. It recovers the most intricate details, of very high image fidelity and naturalness, not only for the target objects, but also all the background scenes.</figcaption>
-                    </figure>
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://arxiv.org/pdf/2310.19731"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="https://arxiv.org/abs/2310.19731"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
 
-<!--                    <article>-->
-<!--                        <p> In this work we demonstrate the vulnerability of vision transformers (ViTs) to gradient-based inversion attacks. During this attack, the original data batch is reconstructed given model weights and the corresponding gradients. We introduce a method, named GradViT, that optimizes random noise into naturally looking images via an iterative process. The optimization objective consists of (i) a loss on matching the gradients, (ii) image prior in the form of distance to batch-normalization statistics of a pretrained CNN model, and (iii) a total variation regularization on patches to guide correct recovery locations. We propose a unique loss scheduling function to overcome local minima during optimization. We evaluate GadViT on ImageNet1K and MS-Celeb-1M datasets, and observe unprecedentedly high fidelity and closeness to the original (hidden) data. During the analysis we find that vision transformers are significantly more vulnerable than previously studied CNNs due to the presence of the attention mechanism. Our method demonstrates new state-of-the-art results for gradient inversion in both qualitative and quantitative metrics.</p>-->
-<!--                    </article>-->
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/NVlabs/ViR"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
 
-                    <figure class="article-image">
-                        <img src="./images/face_results.png" alt="">
-                        <figcaption>Qualitative comparison of reconstructed images from MS-Celeb-1M dataset using batch gradient inversion of Face-Transformer. GradViT is able to recover detailed and facial features identical to the original. Recovery at batch size 4.</figcaption>
 
-                    
-                    </figure>
-                </div>
-            </div>
-
-           <div class="papers">
-            <div id="paper" class="wrapper-extra-links">
-                <div class="extra-link">
-                    <div class="paper-pic">
-                        <span class="paper-title">Paper</span>
-                        <figure>
-                            <a target="_blank" href="https://arxiv.org/pdf/2203.11894.pdf"><img src="./images/paper_cover.png" alt=""></a>
-                        </figure>
-                    </div>
-                    <div class="description">
-                        <p> 	
-
-                            GradViT: Gradient Inversion of Vision Transformers,
-                            CVPR 2022.
-                        </p>
-
-                        <a target="_blank" href="https://arxiv.org/abs/2203.11894">paper</a>
-                    </div>
-                </div>
-            </div>
-
-<!--            <div class="wrapper-extra-links">-->
-<!--                <div class="extra-link extra-link-sup">-->
-<!--                    <div class="paper-pic">-->
-<!--                        <span class="paper-title">Supplementary Material</span>-->
-<!--                        <figure>-->
-<!--                            <a target="_blank" href=""><img src="./images/sm_illustration.png" alt=""></a>-->
-<!--                        </figure>-->
-<!--                    </div>-->
-<!--                    <div class="description">-->
-<!--                        <a target="_blank" href="">Supplementary Page</a>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-           </div>
-
-            <div class="wrapper-code">
-                <span class="title">Bibtex</span>
-                    <pre>
-                        <code id="code">
-  @article{hatamizadeh2022gradvit,
-       title      = {GradViT: Gradient Inversion of Vision Transformers},
-       author     = {Hatamizadeh, Ali and Yin, Hongxu and Roth, Holger and Li, Wenqi and Kautz, Jan and Xu, Daguang and Molchanov, Pavlo},
-       journal    = {arXiv preprint arXiv:2203.11894},
-       year       = {2022},
-    }
-                        </code>
-                    </pre>
-            </div>
+          </div>
         </div>
+      </div>
     </div>
+  </div>
+</section>
 
-    <script src="./dist/js/wow.min.js"></script>
-    <script src="./dist/js/main.js"></script>
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Vision Transformers (ViTs) have attracted a lot of popularity in recent years, due to their exceptional capabilities in modeling long-range spatial dependencies and scalability for large scale training. Although the training parallelism of self-attention mechanism plays an important role in retaining great performance, its quadratic complexity baffles the application of ViTs in many scenarios which demand fast inference. This effect is even more pronounced in applications in which autoregressive modeling of input features is required. In Natural Language Processing (NLP), a new stream of efforts has proposed parallelizable models with recurrent formulation that allows for efficient inference in generative applications. Inspired by this trend, we propose a new class of computer vision models, dubbed Vision Retention Networks (ViR), with dual parallel and recurrent formulations, which strike an optimal balance between fast inference and parallel training with competitive performance. In particular, ViR scales favorably for image throughput and memory consumption in tasks that require higher-resolution images due to its flexible formulation in processing large sequence lengths. The ViR is the first attempt to realize dual parallel and recurrent equivalency in a general vision backbone for recognition tasks. We have validated the effectiveness of ViR through extensive experiments with different dataset sizes and various image resolutions and achieved competitive performance.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <div class="columns is-centered">
+
+      <!-- Visual Effects. -->
+
+      <!-- Matting. -->
+      <div class="column is-full-width">
+        <h2 class="title is-3">ViR Model</h2>
+        <div class="columns is-centered">
+          <div class="column content">
+            <p>
+              In ViR, flattened patches are linearly projected into a patch embedding.
+The position embedding are then added to the patch embedding and a class token is appended to this sequence. The retention encoder
+comprises of alternating Multi-Head Retention and MLP blocks. The MHR blocks use a causal decay mask.
+            </p>
+            <img src="./static/images/vir.png"
+                 class="interpolation-image"
+                 alt="ViR architecture."/>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <!--/ Matting. -->
+
+  </div>
+</section>
+
+
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="./static/videos/nerfies_paper.pdf">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/keunhong" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            Please remember to remove the analytics code included in the header of the website which
+            you do not want on your website.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
 </body>
 </html>
